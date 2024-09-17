@@ -11,7 +11,6 @@ dados = {
 
 df = pd.DataFrame(dados)
 
-df["REGRAS"] = df.apply(lambda x: "".join(x[df.columns[-5:]]), axis=1)
-df["REGRAS"] = np.where("SSSSS" == df["REGRAS"], "S", "N")
+df["REGRAS"] = np.where("SSSSS" == df.apply(lambda x: "".join(x[df.columns[-5:]]), axis=1), "S", "N")
 
 print(df)
